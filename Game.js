@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
             this.snake.draw();
 
             // ---> Food initialization
-            this.food.generatePosition();
+            this.food.generateSpawnPosition();
             this.food.draw();
         }
 
@@ -64,8 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
             }
-
-            this.updateCanvas();
         }
 
 

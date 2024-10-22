@@ -7,7 +7,7 @@ class Food {
     }
 
 
-    generatePosition () {
+    generateSpawnPosition () {
         this.row = Math.floor(Math.random()* 10);
         this.col = Math.floor(Math.random()* 10);
     }
