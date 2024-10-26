@@ -18,6 +18,10 @@ class Matrix {
     // -----> clears the matrix and fills every element with 0 (0=free cell)
     resetMatrixStatus () {
         console.log(this.twoDimensionalMatrixArray)
+        this.twoDimensionalMatrixArray.forEach(matrixRowArray => {
+            const filledMatrixRowArray= matrixRowArray.fill({length: this.rows}, () => 1)
+        })
+        console.log(this.twoDimensionalMatrixArray)
     }
 
 
