@@ -1,7 +1,10 @@
 class InputHandler {
-    constructor(pressedKey) {
-        this.pressedKey = pressedKey
+    constructor() {
     }
 
-
+    handlePressedKey (e) {
+        if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
+            return e.code;
+        }
+    }
 }
