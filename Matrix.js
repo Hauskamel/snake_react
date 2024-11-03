@@ -1,28 +1,18 @@
 class Matrix {
     constructor (rows) {
         this.rows= rows;
-        this.twoDimensionalMatrixArray = [
-            // Array with each row filled with the numbers of this.cols
-        ]
+        this.initializeMatrix();
+
     }
 
 
-    // -----> initialize 9 empty arrays. Each representing a matrix row
-    initialize2dMatrix () {
-        // ---> creates 9 empty arrays
-        const emptyArrays = Array.from({length: this.rows}, () => []);
-        this.twoDimensionalMatrixArray.push(emptyArrays);
+    // ---> cleared matrix, every element is 0. Happens only when initialized
+    initializeMatrix () {
+        this.matrix = new Array(this.rows).fill(0).map(() => new Array(this.rows).fill(0)); // creates an array out element in the fill() method
     }
 
 
-    // -----> clears the matrix and fills every element with 0 (0=free cell)
-    resetMatrixStatus () {
-        console.log(this.twoDimensionalMatrixArray)
-        this.twoDimensionalMatrixArray.forEach(matrixRowArray => {
-            const filledMatrixRowArray= matrixRowArray.fill({length: this.rows}, () => 1)
-        })
-        console.log(this.twoDimensionalMatrixArray)
-    }
+
 
 
 }

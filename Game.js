@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-
-    // ________________________________________________________________________________________________________________________________________
-
     class Game {
         constructor(inputHandler, canvas, ctx, grid, snake, food) {
             this.gameState = "running" // 3 gameStates: "meu"; "running", "over"
@@ -42,21 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         keyPressed(e) {
-            snake.updateSnakeHead(inputHandler.handlePressedKey(e));
             this.updateCanvas();
         }
 
 
 
-        snakeMoving() {
-            this.snake.snakeParts.forEach(snakePart => {
 
-                // TODO: IMPLEMENT MATRIX LOGIC HERE
-
-
-                snakePart.x -= this.cellSize;
-            })
-        }
     }
 
 
@@ -94,13 +82,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ________________________________________________________________________________________________________________________________________
 
-
-    // #################### INTERVAL - UPDATES GAME EVERY 1 SECOND ####################
-    // ---> moves the snake forward (in what ever direction the snake is looking forward)
-    setInterval(() => {
-        // snakeApp.snakeMoving();
-        // snakeApp.updateCanvas();
-    }, 1000);
-
-    document.addEventListener("keydown", snakeApp.keyPressed.bind(snakeApp))
 })
