@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     class Game {
-        constructor(inputHandler, canvas, ctx, grid, snake, food) {
+        constructor(inputHandler, canvas, ctx, grid, snake, food, matrix) {
             this.gameState = "running" // 3 gameStates: "meu"; "running", "over"
             this.snakeDirection = "left" // standard: snake is moving from right to left when game starts ---> "left", "right", "up", "down"
             this.canvas = canvas;
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
             this.grid = grid;
             this.snake = snake;
             this.food = food;
-            this.cellSize = 50;
+            this.matrix = matrix
         }
 
 
@@ -22,11 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
             this.grid.draw();
-            // this.snake.draw();
 
             // ---> Food initialization
             this.food.generateSpawnPosition();
             this.food.draw();
+
+            this.matrix.updateMatrix();
         }
 
 
@@ -35,17 +36,26 @@ document.addEventListener("DOMContentLoaded", () => {
             this.grid.draw();
             this.snake.draw();
             this.food.draw();
+
         }
 
 
-        keyPressed(e) {
-            this.updateCanvas();
-        }
+        // keyPressed() {
+            //this.updateCanvas();
+        // }
 
 
 
 
     }
+
+
+
+
+
+
+
+
 
 
     // ________________________________________________________________________________________________________________________________________
@@ -61,10 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const ctx = canvas.getContext("2d");
 
     // init of elements on the canvas
-    const matrix= new Matrix(this.rows)
-    const grid = new Grid(canvas, ctx, cellSize, matrix);
+    const grid = new Grid(canvas, ctx, cellSize);
     const snake = new Snake(canvas, ctx);
-    const food = new Food(canvas, ctx)
+    const food = new Food(canvas, ctx);
+
+    // the matrix
+    // calculates which cell is colored and will be colored next
+    const matrix= new Matrix(this.rows, food)
 
     // ################# GAME SETUP ###################
     // initializes input handler
@@ -76,8 +89,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // #################### GAME INIT ####################
     // initialization of the game itself with the canvas context and the game grid as parameters
-    const snakeApp = new Game(inputHandler, canvas, ctx, grid, snake, food);
+    const snakeApp = new Game(inputHandler, canvas, ctx, grid, snake, food, matrix);
     snakeApp.initializeGame();
+    snakeApp.updateCanvas();
+
+
+
+
+    // FIXME: --- BITTE NOCHMAL PRÜFEN ---
+    // document.addEventListener("keydown", snakeApp.updateCanvas)
 
 
     // ________________________________________________________________________________________________________________________________________
