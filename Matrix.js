@@ -8,7 +8,8 @@ class Matrix {
     }
 
 
-    manageCurrentFramePositions(positions) {
+    // ---> syncing every element on the canvas to the matrix
+    syncCurrentFrameToMatrix(positions) {
         this.tempMatrix = this.matrix;
 
         positions.forEach((position) => {
@@ -31,7 +32,7 @@ class Matrix {
         this.foodPosition = this.food.returnSpawnPosition()
 
         const allPositions = [this.foodPosition]
-        this.manageCurrentFramePositions(allPositions)
+        this.syncCurrentFrameToMatrix(allPositions)
     }
 
     // ---> updates matrix by current frame positions
