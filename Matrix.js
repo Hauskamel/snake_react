@@ -26,7 +26,10 @@ class Matrix {
         this.snakeHeadSpawnPosition = this.snake.returnHeadSpawnPosition()
         // this.snakePosition = this.snake.returnCurrentPosition();
 
+        // if statement that checks wether food spawn === snakeHeadSpanw - if so, spawn snake again
+
         const allPositions = [this.foodSpawnPosition, this.snakeHeadSpawnPosition]
+        console.log(allPositions)
         this.syncCurrentFrameToMatrix(allPositions)
     }
 
@@ -36,7 +39,7 @@ class Matrix {
         this.tempMatrix = this.matrix;
 
         positions.forEach((position) => {
-            console.log(position) // logs [undefined, undefined] for snakeHeadSpawnPosition
+            // console.log(position) // logs [undefined, undefined] for snakeHeadSpawnPosition
             this.managePosition(position)
         })
 
