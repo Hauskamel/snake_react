@@ -9,12 +9,12 @@ class Food {
 
     // ---> generates a random number for row and column
     generateSpawnPosition () {
-        this.row = Math.floor(Math.random()* 10);
-        this.col = Math.floor(Math.random()* 10);
-        this.returnSpawnPosition(this.row, this.col)
+        this.row = Math.floor(Math.random() * 10);
+        this.col = Math.floor(Math.random() * 10);
+        this.returnFoodSpawnPosition(this.row, this.col)
     }
 
-    returnSpawnPosition() {
+    returnFoodSpawnPosition() {
         return [this.row, this.col]
     }
 

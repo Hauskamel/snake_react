@@ -27,6 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
             this.food.generateSpawnPosition();
             this.food.draw();
 
+
+            // ---> snake initialization
+            this.snake.generateHeadSpawnPosition();
+
             this.matrix.updateMatrix();
         }
 
@@ -36,16 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             this.grid.draw();
             this.snake.draw();
             this.food.draw();
-
         }
-
-
-        // keyPressed() {
-            //this.updateCanvas();
-        // }
-
-
-
 
     }
 
@@ -77,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // the matrix
     // calculates which cell is colored and will be colored next
-    const matrix= new Matrix(this.rows, food)
+    const matrix= new Matrix(this.rows, food, snake)
 
     // ################# GAME SETUP ###################
     // initializes input handler
