@@ -11,10 +11,8 @@ class Matrix {
     managePosition(position) {
         let matrixRow = position[0];
         let matrixCol = position[1];
-
         this.tempMatrix[matrixRow][matrixCol] = 1; // updates matrix on position 'matrixRow' and 'matrixCol'
     }
-
 
     // ---> gets current positions of all elements of this current frame
     getCurrentFramePositions() {
@@ -26,7 +24,7 @@ class Matrix {
         this.snakeHeadSpawnPosition = this.snake.returnHeadSpawnPosition()
         // this.snakePosition = this.snake.returnCurrentPosition();
 
-        // if statement that checks wether food spawn === snakeHeadSpanw - if so, spawn snake again
+        // if statement that checks wether food spawn === snakeHeadSpawn - if so, spawn snake again
 
         const allPositions = [this.foodSpawnPosition, this.snakeHeadSpawnPosition]
         console.log(allPositions)
@@ -39,12 +37,10 @@ class Matrix {
         this.tempMatrix = this.matrix;
 
         positions.forEach((position) => {
-            // console.log(position) // logs [undefined, undefined] for snakeHeadSpawnPosition
             this.managePosition(position)
         })
 
         this.matrix = this.tempMatrix;
-        console.log(this.matrix)
     }
 
 
