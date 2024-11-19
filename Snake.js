@@ -2,11 +2,15 @@ class Snake {
     constructor(canvas, ctx) {
         this.canvas = canvas;
         this.ctx = ctx;
+
+        this.snakeBodyCellWidth = 50;
+        this.snakeBodyCellHeight = 50;
+
         this.snakeAllElements = [];
     }
 
     // generates two random numbers and
-    // method only executes at game initialisation.
+    // method only executes at game initialisation or when apple has same position as snake head.
     generateHeadSpawnPosition () {
         this.row = Math.floor(Math.random() * 10)
         this.col = Math.floor(Math.random() * 10)
@@ -24,9 +28,18 @@ class Snake {
     }
 
 
+
+    initializeSnakeBasedOnHeadPosition () {
+
+    }
+
+
     // ---> method draws all snake elements to the board
     draw () {
-
+        this.ctx.beginPath();
+        this.ctx.rect(this.col*50,this.row*50, this.snakeBodyCellWidth, this.snakeBodyCellHeight);
+        this.ctx.fillStyle = "#556b2f";
+        this.ctx.fill();
     }
 
 }
