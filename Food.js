@@ -9,12 +9,13 @@ class Food {
 
     // ---> generates a random number for row and column
     generateSpawnPosition () {
-        this.row = Math.floor(Math.random()* 10);
-        this.col = Math.floor(Math.random()* 10);
-        this.returnSpawnPosition(this.row, this.col)
+        this.row = Math.floor(Math.random() * 10);
+        this.col = Math.floor(Math.random() * 10);
+        this.spawnPosition()
     }
 
-    returnSpawnPosition() {
+
+    spawnPosition() {
         return [this.row, this.col]
     }
 
@@ -22,7 +23,7 @@ class Food {
     draw () {
         this.ctx.beginPath();
         this.ctx.rect(this.col*50,this.row*50, this.appleWidth, this.appleHeight);
-        this.ctx.fillStyle = "#556b2f";
+        this.ctx.fillStyle = "#cc3b3b";
         this.ctx.fill();
     }
 }
