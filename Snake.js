@@ -6,6 +6,7 @@ class Snake {
         this.snakeBodyCellWidth = 50;
         this.snakeBodyCellHeight = 50;
 
+        // array with all visual grid cells of snake
         this.snakeAllElements = [];
     }
 
@@ -18,15 +19,13 @@ class Snake {
         this.snakeHeadPosition = [this.row, this.col];
         // -> pushes snakeHeadPosition array into the array where all snake elements are stored
         this.snakeAllElements.push(this.snakeHeadPosition)
-        // -> passes array to method
-        this.returnHeadSpawnPosition();
+        this.headSpawnPosition();
     }
 
     // ---> method simply returns the array of the snake heads spawn position in the 'Game' class when the game is initialized
-    returnHeadSpawnPosition () {
+    headSpawnPosition () {
         return this.snakeAllElements[0]
     }
-
 
 
     initializeSnake () {
@@ -38,7 +37,6 @@ class Snake {
         //       for now its ok to just add it to the snakes right
 
         const lastSnakeCell = this.snakeAllElements.pop();
-        console.log(lastSnakeCell)
     }
 
 

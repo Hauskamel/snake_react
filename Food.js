@@ -11,11 +11,11 @@ class Food {
     generateSpawnPosition () {
         this.row = Math.floor(Math.random() * 10);
         this.col = Math.floor(Math.random() * 10);
-        this.returnActualSpawnIndex()
+        this.spawnPosition()
     }
 
-    returnActualSpawnIndex() {
-        console.log(this.row, this.col)
+
+    spawnPosition() {
         return [this.row, this.col]
     }
 

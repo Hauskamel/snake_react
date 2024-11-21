@@ -6,6 +6,7 @@ class Matrix {
 
         this.gameInit = 1;
 
+        // Array with all visual grid cells (snake and food)
         this.allPositions = [];
 
         // initializes Matrix
@@ -17,14 +18,14 @@ class Matrix {
     initializeMatrix () {
         // -> returns spawn position of apple.
         // Because the apple does not move and stays where it spawns, the spawnPosition is enough to return (no 'currentPosition' needed)
-        this.foodSpawnPosition = this.food.returnActualSpawnIndex();
+        this.foodSpawnPosition = this.food.spawnPosition();
         // -> returns current snake position.
         // -> Because the snake needs to be updated (based on the players input) the current position is required to update the matrix accordingly.
         // TODO: Replace snakeHeadPosition with entire snake positions array - the snake functionality is only written in the 'Snake' class
         // TODO: BUT KEEP snakeHeadSpawnPosition VARIABLE DUE TO USAGE FURTHER DOWN
-        this.snakeHeadSpawnPosition = this.snake.returnHeadSpawnPosition();
+        this.snakeHeadSpawnPosition = this.snake.headSpawnPosition();
 
-        // if statement that checks wether food spawn === snakeHeadSpawn - if so, spawn apple again
+        // if statement that checks whether food spawn === snakeHeadSpawn - if so, spawn apple again
         if (this.foodSpawnPosition.includes(this.snakeHeadSpawnPosition[1])) {
             this.food.ctx.clearRect(0, 0, this.food.canvas.width, this.food.canvas.height)
             this.food.generateSpawnPosition();
@@ -44,9 +45,7 @@ class Matrix {
     getCurrentFramePositions() {
         // check if game initialization to initialize matrix;
         if (this.gameInit===1){
-            console.log("initializing matrix")
             this.initializeMatrix();
-            console.log("matrix initialized")
             this.gameInit=0;
         }
 
@@ -83,7 +82,7 @@ class Matrix {
 
     drawElementsToCanvas () {
         // Things necessary
-        console.log(this.matrix)
+        // console.log(this.matrix)
     }
 
 
