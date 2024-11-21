@@ -29,8 +29,16 @@ class Snake {
 
 
 
-    initializeSnakeBasedOnHeadPosition () {
+    initializeSnake () {
+        this.spawnBodyPart();
+    }
+    
+    spawnBodyPart () {
+        // TODO: To make it logically correct - later the snakes head direction (the direction where the player goes) has to play a role where to place the element
+        //       for now its ok to just add it to the snakes right
 
+        const lastSnakeCell = this.snakeAllElements.pop();
+        console.log(lastSnakeCell)
     }
 
 

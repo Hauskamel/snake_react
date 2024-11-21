@@ -25,13 +25,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // ---> Food initialization
             this.food.generateSpawnPosition();
-            this.food.draw();
-
 
             // ---> snake initialization
             this.snake.generateHeadSpawnPosition();
 
+            // ---> updates 2d matrix filled with '0's and '1's
             this.matrix.updateMatrix();
+
+            snakeApp.updateCanvas();
+
+            matrix.drawElementsToCanvas();
         }
 
 
@@ -86,7 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // initialization of the game itself with the canvas context and the game grid as parameters
     const snakeApp = new Game(inputHandler, canvas, ctx, grid, snake, food, matrix);
     snakeApp.initializeGame();
-    snakeApp.updateCanvas();
 
 
 

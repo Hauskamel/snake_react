@@ -15,6 +15,7 @@ class Food {
     }
 
     returnActualSpawnIndex() {
+        console.log(this.row, this.col)
         return [this.row, this.col]
     }
 
