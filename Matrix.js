@@ -71,6 +71,7 @@ class Matrix {
         })
 
         this.matrix = this.tempMatrix;
+        console.log(this.matrix)
     }
 
 

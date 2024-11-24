@@ -41,7 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCanvas() {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.grid.draw();
+            console.log("drawing snake...")
             this.snake.draw();
+            console.log("snake drawn.")
             this.food.draw();
         }
 

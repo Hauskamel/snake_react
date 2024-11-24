@@ -13,12 +13,15 @@ class Snake {
     // generates two random numbers and
     // method only executes at game initialisation or when apple has same position as snake head.
     generateHeadSpawnPosition () {
-        this.row = Math.floor(Math.random() * 10)
-        this.col = Math.floor(Math.random() * 10)
+        this.snakeHeadObject = {
+            row : Math.floor(Math.random() * 10),
+            col : Math.floor(Math.random() * 10)
+        }
         // -> initializes an array where the spawn position of the snake is stored
-        this.snakeHeadPosition = [this.row, this.col];
+        this.snakeHeadPosition = [this.snakeHeadObject.row, this.snakeHeadObject.col]
         // -> pushes snakeHeadPosition array into the array where all snake elements are stored
         this.snakeAllElements.push(this.snakeHeadPosition)
+
         this.headSpawnPosition();
     }
 
@@ -36,16 +39,19 @@ class Snake {
         // TODO: To make it logically correct - later the snakes head direction (the direction where the player goes) has to play a role where to place the element
         //       for now its ok to just add it to the snakes right
 
-        const lastSnakeCell = this.snakeAllElements.pop();
+        // const lastSnakeCell = this.snakeAllElements.pop();
     }
 
 
     // ---> method draws all snake elements to the board
     draw () {
-        this.ctx.beginPath();
-        this.ctx.rect(this.col*50,this.row*50, this.snakeBodyCellWidth, this.snakeBodyCellHeight);
-        this.ctx.fillStyle = "#556b2f";
-        this.ctx.fill();
+        console.log(this.snakeAllElements)
+        for (let i = 0; i < this.snakeAllElements.length;i++) {
+            this.ctx.beginPath();
+            this.ctx.rect(this.snakeAllElements[i][0]*50,this.snakeAllElements[i][1]*50, this.snakeBodyCellWidth, this.snakeBodyCellHeight);
+            this.ctx.fillStyle = "#556b2f";
+            this.ctx.fill();
+        }
     }
 
 }
